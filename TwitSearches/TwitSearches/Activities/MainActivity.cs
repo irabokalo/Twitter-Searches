@@ -2,9 +2,9 @@
 using Android.Widget;
 using Android.OS;
 
-namespace TwitterSearches
+namespace TwitSearches
 {
-    [Activity(Label = "TwitterSearches", MainLauncher = true)]
+    [Activity(Label = "TwitSearches", MainLauncher = false)]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
