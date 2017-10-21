@@ -1675,6 +1675,12 @@ namespace TwitSearches
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0a006d
+			public const int Heading = 2131361901;
+			
+			// aapt resource value: 0x7f0a006e
+			public const int List = 2131361902;
+			
 			// aapt resource value: 0x7f0a0059
 			public const int action0 = 2131361881;
 			
@@ -1828,9 +1834,6 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a0009
 			public const int listMode = 2131361801;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int listView1 = 2131361901;
-			
 			// aapt resource value: 0x7f0a002b
 			public const int list_item = 2131361835;
 			
@@ -1845,9 +1848,6 @@ namespace TwitSearches
 			
 			// aapt resource value: 0x7f0a0020
 			public const int never = 2131361824;
-			
-			// aapt resource value: 0x7f0a006e
-			public const int new_button = 2131361902;
 			
 			// aapt resource value: 0x7f0a000e
 			public const int none = 2131361806;
@@ -1962,9 +1962,6 @@ namespace TwitSearches
 			
 			// aapt resource value: 0x7f0a0052
 			public const int submit_area = 2131361874;
-			
-			// aapt resource value: 0x7f0a006f
-			public const int suggest_button = 2131361903;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int tabMode = 2131361803;
