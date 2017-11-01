@@ -1675,11 +1675,11 @@ namespace TwitSearches
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a006f
-			public const int Heading = 2131361903;
-			
 			// aapt resource value: 0x7f0a0070
-			public const int List = 2131361904;
+			public const int Heading = 2131361904;
+			
+			// aapt resource value: 0x7f0a0071
+			public const int List = 2131361905;
 			
 			// aapt resource value: 0x7f0a0059
 			public const int action0 = 2131361881;
@@ -1888,8 +1888,8 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a0060
 			public const int right_side = 2131361888;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int saveTag = 2131361905;
+			// aapt resource value: 0x7f0a006f
+			public const int save = 2131361903;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int screen = 2131361812;

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TwitSearches.Activities
 {
-    [Activity(Label = "TagsListActivity")]
+    [Activity(Label = "Twitter searches")]
     public class TagsListActivity: Activity
     { 
         ListView listView;
@@ -32,12 +32,12 @@ namespace TwitSearches.Activities
             var tags = ap.getAllTags().Keys.ToList();
 
             listView = FindViewById<ListView>(Resource.Id.List); 
-            saveTagButton = FindViewById<Button>(Resource.Id.saveTag);
+            saveTagButton = FindViewById<Button>(Resource.Id.save);
             textQuery = FindViewById<EditText>(Resource.Id.inputQuery);
             textTag = FindViewById<EditText>(Resource.Id.inputTag);
             listView.Adapter =  new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);
-
-
+            
+            listView.ItemClick += listView_ItemClick;
             saveTagButton.Click += OnSaveTagClick;
         }
 
@@ -48,13 +48,14 @@ namespace TwitSearches.Activities
 
             ap.saveTag(tag, query);
             Toast.MakeText(this, "Done", ToastLength.Short);
-      
         }
 
-        //protected override void OnListItemClick(ListView l, View v, int position, long id)
-        //{
-        //    // Ось тут Улян додаси віконце де будуть ті запити хендлитись
-
-        //}
+        void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var tag = (string)listView.GetItemAtPosition(e.Position);
+            var uri = Android.Net.Uri.Parse("https://www.google.com/search?q=" + tag);
+            var intent = new Intent(Intent.ActionView, uri);
+            StartActivity(intent);
+        }
     }
 }

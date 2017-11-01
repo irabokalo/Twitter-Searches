@@ -12,10 +12,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/save"
         android:text="SAVE"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/save" />
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/Heading"
         android:text="Saved tags"
