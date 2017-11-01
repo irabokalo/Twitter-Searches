@@ -1786,8 +1786,14 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a002a
 			public const int default_activity_button = 2131361834;
 			
+			// aapt resource value: 0x7f0a0074
+			public const int deleteTag = 2131361908;
+			
 			// aapt resource value: 0x7f0a000c
 			public const int disableHome = 2131361804;
+			
+			// aapt resource value: 0x7f0a0073
+			public const int editTag = 2131361907;
 			
 			// aapt resource value: 0x7f0a0049
 			public const int edit_query = 2131361865;
@@ -1935,6 +1941,9 @@ namespace TwitSearches
 			
 			// aapt resource value: 0x7f0a0055
 			public const int select_dialog_listview = 2131361877;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int shareTag = 2131361906;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int shortcut = 2131361855;
@@ -2208,6 +2217,22 @@ namespace TwitSearches
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0c0000
+			public const int popupMenu = 2131492864;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

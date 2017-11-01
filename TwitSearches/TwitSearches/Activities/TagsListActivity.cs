@@ -36,9 +36,11 @@ namespace TwitSearches.Activities
             textQuery = FindViewById<EditText>(Resource.Id.inputQuery);
             textTag = FindViewById<EditText>(Resource.Id.inputTag);
             listView.Adapter =  new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);
-            
-            listView.ItemClick += listView_ItemClick;
+
             saveTagButton.Click += OnSaveTagClick;
+
+            listView.ItemClick += listView_ItemClick;
+            listView.ItemLongClick += ShowPopupMenu;          
         }
 
         void OnSaveTagClick(object sender, EventArgs e)
@@ -56,6 +58,44 @@ namespace TwitSearches.Activities
             var uri = Android.Net.Uri.Parse("https://www.google.com/search?q=" + tag);
             var intent = new Intent(Intent.ActionView, uri);
             StartActivity(intent);
+        }
+
+        private void ShowPopupMenu(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            PopupMenu menu = new PopupMenu(this, (View)sender);
+            menu.Inflate(Resource.Menu.popupMenu);
+            menu.MenuItemClick += (s, arg) =>
+            {
+                switch (arg.Item.TitleFormatted.ToString())
+                {
+                    case "Share":
+                        ShareTag(e.Position);
+                        break;
+                    case "Edit":
+                        EditTag(e.Position);
+                        break;
+                    case "Delete":
+                        DeleteTag(e.Position);
+                        break;
+                }
+            };
+
+            menu.Show();
+        }
+
+        public void EditTag(int tagIndex)
+        {
+            //TODO: IMPLEMENT
+        }
+
+        public void ShareTag(int tagIndex)
+        {
+            //TODO: IMPLEMENT
+        }
+
+        public void DeleteTag(int tagIndex)
+        {
+            //TODO: IMPLEMENT
         }
     }
 }
