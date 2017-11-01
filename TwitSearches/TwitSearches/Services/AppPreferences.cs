@@ -23,7 +23,13 @@ public class AppPreferences
         mPrefsEditor.Commit();
     }
 
-    public string getTag(string tag)
+    public void deleteTag(string key)
+    {
+        mPrefsEditor.Remove(key);
+        mPrefsEditor.Commit();
+    }
+
+    public string getQuery(string tag)
     {
         return mSharedPrefs.GetString(tag,"");
     }

@@ -16,6 +16,7 @@ namespace TwitSearches.Activities
     public class TagsListActivity: Activity
     { 
         ListView listView;
+        ArrayAdapter<string> adapter;
         Button saveTagButton;
         EditText textTag;
         EditText textQuery;
@@ -35,7 +36,8 @@ namespace TwitSearches.Activities
             saveTagButton = FindViewById<Button>(Resource.Id.save);
             textQuery = FindViewById<EditText>(Resource.Id.inputQuery);
             textTag = FindViewById<EditText>(Resource.Id.inputTag);
-            listView.Adapter =  new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);
+            adapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);
+            listView.Adapter = adapter;
 
             saveTagButton.Click += OnSaveTagClick;
 
@@ -49,13 +51,18 @@ namespace TwitSearches.Activities
             string query = textQuery.Text;
 
             ap.saveTag(tag, query);
-            Toast.MakeText(this, "Done", ToastLength.Short);
+            adapter.Add(tag);
+            adapter.NotifyDataSetChanged();
+            textTag.Text = "";
+            textQuery.Text = "";
+            Toast.MakeText(this, "Tag has been added", ToastLength.Short).Show();
         }
 
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var tag = (string)listView.GetItemAtPosition(e.Position);
-            var uri = Android.Net.Uri.Parse("https://www.google.com/search?q=" + tag);
+            var query = ap.getQuery(tag);
+            var uri = Android.Net.Uri.Parse("https://www.google.com/search?q=" + query);
             var intent = new Intent(Intent.ActionView, uri);
             StartActivity(intent);
         }
@@ -109,7 +116,10 @@ namespace TwitSearches.Activities
 
         public void DeleteTag(int tagIndex)
         {
-            //TODO: IMPLEMENT
+            var tag = (string) listView.GetItemAtPosition(tagIndex);
+            ap.deleteTag(tag);
+            adapter.Remove(tag);
+            adapter.NotifyDataSetChanged();
         }
     }
 }
