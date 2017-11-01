@@ -75,12 +75,26 @@ namespace TwitSearches.Activities
                         EditTag(e.Position);
                         break;
                     case "Delete":
-                        DeleteTag(e.Position);
+                        ShowAlertDialog(e.Position);
                         break;
                 }
             };
 
             menu.Show();
+        }
+
+        private void ShowAlertDialog(int tagIndex)
+        {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            AlertDialog alert = dialog.Create();
+            alert.SetTitle("Confirmation");
+            alert.SetMessage("Are you sure you want to delete this tag?");
+            alert.SetButton("DELETE", (c, ev) =>
+            {
+                DeleteTag(tagIndex);
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
         }
 
         public void EditTag(int tagIndex)
