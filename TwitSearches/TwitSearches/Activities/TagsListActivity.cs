@@ -62,7 +62,6 @@ namespace TwitSearches.Activities
         {
             string tag = textTag.Text;
             string query = textQuery.Text;
-
             ap.saveTag(tag, query);
             adapter.Add(tag);
             adapter.NotifyDataSetChanged();
