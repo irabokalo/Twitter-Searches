@@ -1675,11 +1675,11 @@ namespace TwitSearches
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0070
-			public const int Heading = 2131361904;
-			
 			// aapt resource value: 0x7f0a0071
-			public const int List = 2131361905;
+			public const int Heading = 2131361905;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int List = 2131361906;
 			
 			// aapt resource value: 0x7f0a0059
 			public const int action0 = 2131361881;
@@ -1786,14 +1786,14 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a002a
 			public const int default_activity_button = 2131361834;
 			
-			// aapt resource value: 0x7f0a0074
-			public const int deleteTag = 2131361908;
+			// aapt resource value: 0x7f0a0075
+			public const int deleteTag = 2131361909;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int disableHome = 2131361804;
 			
-			// aapt resource value: 0x7f0a0073
-			public const int editTag = 2131361907;
+			// aapt resource value: 0x7f0a0074
+			public const int editTag = 2131361908;
 			
 			// aapt resource value: 0x7f0a0049
 			public const int edit_query = 2131361865;
@@ -1831,11 +1831,11 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a0063
 			public const int info = 2131361891;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int inputQuery = 2131361901;
-			
 			// aapt resource value: 0x7f0a006e
-			public const int inputTag = 2131361902;
+			public const int inputQuery = 2131361902;
+			
+			// aapt resource value: 0x7f0a006f
+			public const int inputTag = 2131361903;
 			
 			// aapt resource value: 0x7f0a0068
 			public const int line1 = 2131361896;
@@ -1876,6 +1876,9 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a005e
 			public const int notification_main_column_container = 2131361886;
 			
+			// aapt resource value: 0x7f0a006d
+			public const int parent = 2131361901;
+			
 			// aapt resource value: 0x7f0a0030
 			public const int parentPanel = 2131361840;
 			
@@ -1894,8 +1897,8 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a0060
 			public const int right_side = 2131361888;
 			
-			// aapt resource value: 0x7f0a006f
-			public const int save = 2131361903;
+			// aapt resource value: 0x7f0a0070
+			public const int save = 2131361904;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int screen = 2131361812;
@@ -1942,8 +1945,8 @@ namespace TwitSearches
 			// aapt resource value: 0x7f0a0055
 			public const int select_dialog_listview = 2131361877;
 			
-			// aapt resource value: 0x7f0a0072
-			public const int shareTag = 2131361906;
+			// aapt resource value: 0x7f0a0073
+			public const int shareTag = 2131361907;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int shortcut = 2131361855;

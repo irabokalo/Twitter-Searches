@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Views.InputMethods;
 
 namespace TwitSearches.Activities
 {
@@ -25,6 +26,9 @@ namespace TwitSearches.Activities
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.tags);
+
+      
+
             Context mContext = Android.App.Application.Context;
             ap = new AppPreferences(mContext);
 
@@ -39,10 +43,19 @@ namespace TwitSearches.Activities
             adapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);
             listView.Adapter = adapter;
 
+         
+
             saveTagButton.Click += OnSaveTagClick;
 
             listView.ItemClick += listView_ItemClick;
             listView.ItemLongClick += ShowPopupMenu;          
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            var parentContainer = FindViewById<LinearLayout>(Resource.Id.parent);
+            parentContainer.RequestFocus();
         }
 
         void OnSaveTagClick(object sender, EventArgs e)
@@ -55,6 +68,8 @@ namespace TwitSearches.Activities
             adapter.NotifyDataSetChanged();
             textTag.Text = "";
             textQuery.Text = "";
+            InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+            imm.HideSoftInputFromWindow(textTag.WindowToken, Android.Views.InputMethods.HideSoftInputFlags.None);
             Toast.MakeText(this, "Tag has been added", ToastLength.Short).Show();
         }
 
