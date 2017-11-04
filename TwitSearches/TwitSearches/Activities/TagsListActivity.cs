@@ -57,14 +57,22 @@ namespace TwitSearches.Activities
         {
             string tag = textTag.Text;
             string query = textQuery.Text;
-            ap.saveTag(tag, query);
-            adapter.Add(tag);
-            adapter.NotifyDataSetChanged();
-            textTag.Text = "";
-            textQuery.Text = "";
-            InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
-            imm.HideSoftInputFromWindow(textTag.WindowToken, Android.Views.InputMethods.HideSoftInputFlags.None);
-            Toast.MakeText(this, "Tag has been added", ToastLength.Short).Show();
+            if((tag!= string.Empty)&&(query!=string.Empty))
+            {
+                ap.saveTag(tag, query);
+                adapter.Add(tag);
+                adapter.NotifyDataSetChanged();
+                textTag.Text = "";
+                textQuery.Text = "";
+                InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+                imm.HideSoftInputFromWindow(textTag.WindowToken, Android.Views.InputMethods.HideSoftInputFlags.None);
+                Toast.MakeText(this, "Tag has been added", ToastLength.Short).Show();
+            }
+            else
+            {
+                Toast.MakeText(this, "Please fill empty fields", ToastLength.Short).Show();
+            }
+          
         }
 
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
