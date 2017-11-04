@@ -26,9 +26,6 @@ namespace TwitSearches.Activities
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.tags);
-
-      
-
             Context mContext = Android.App.Application.Context;
             ap = new AppPreferences(mContext);
 
@@ -42,8 +39,6 @@ namespace TwitSearches.Activities
             textTag = FindViewById<EditText>(Resource.Id.inputTag);
             adapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);
             listView.Adapter = adapter;
-
-         
 
             saveTagButton.Click += OnSaveTagClick;
 
@@ -120,7 +115,11 @@ namespace TwitSearches.Activities
 
         public void EditTag(int tagIndex)
         {
-            //TODO: IMPLEMENT
+            var tag = (string)listView.GetItemAtPosition(tagIndex);
+            var activity2 = new Intent(this, typeof(EditTagActivity));
+            activity2.PutExtra("MyData", tag);
+            StartActivity(activity2);
+
         }
 
         public void ShareTag(int tagIndex)
