@@ -18,7 +18,7 @@ namespace TwitSearches.Activities
     { 
         ListView listView;
         ArrayAdapter<string> adapter;
-        Button saveTagButton;
+        ImageButton saveTagButton;
         EditText textTag;
         EditText textQuery;
         AppPreferences ap;
@@ -34,7 +34,7 @@ namespace TwitSearches.Activities
             var tags = ap.getAllTags().Keys.ToList();
 
             listView = FindViewById<ListView>(Resource.Id.List); 
-            saveTagButton = FindViewById<Button>(Resource.Id.save);
+            saveTagButton = FindViewById<ImageButton>(Resource.Id.saveButton);
             textQuery = FindViewById<EditText>(Resource.Id.inputQuery);
             textTag = FindViewById<EditText>(Resource.Id.inputTag);
             adapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, tags);

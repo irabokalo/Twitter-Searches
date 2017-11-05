@@ -16,6 +16,7 @@ namespace TwitSearches.Activities
     [Activity(Label = "EditTagActivity")]
     public class EditTagActivity : Activity
     {
+        Button cancelButton;
         Button saveTagButton;
         EditText textTag;
         EditText textQuery;
@@ -25,13 +26,14 @@ namespace TwitSearches.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.editTags);
             Context mContext = Android.App.Application.Context;
-            ap = new AppPreferences(mContext); 
+            ap = new AppPreferences(mContext);
             var tags = ap.getAllTags().Keys.ToList();
 
-          
+
             saveTagButton = FindViewById<Button>(Resource.Id.saveEdit);
             textQuery = FindViewById<EditText>(Resource.Id.inputQueryEdit);
             textTag = FindViewById<EditText>(Resource.Id.inputTagEdit);
+            cancelButton = FindViewById<Button>(Resource.Id.cancelEdit);
 
             string text = Intent.GetStringExtra("MyData") ?? "Data not available";
 
@@ -42,9 +44,15 @@ namespace TwitSearches.Activities
             textTag.Text = tag;
 
             saveTagButton.Click += OnSaveTagClick;
+            cancelButton.Click += OnCancelClick;
         }
 
-        void OnSaveTagClick(object sender, EventArgs e)
+        private void OnCancelClick(object sender, EventArgs e)
+        {
+            StartActivity(typeof(TagsListActivity));
+        }
+
+        private void OnSaveTagClick(object sender, EventArgs e)
         {
             string tag = textTag.Text;
             string query = textQuery.Text;
