@@ -13,7 +13,7 @@ using Android.Views.InputMethods;
 
 namespace TwitSearches.Activities
 {
-    [Activity(Label = "EditTagActivity")]
+    [Activity(Label = "Edit Tag")]
     public class EditTagActivity : Activity
     {
         Button cancelButton;

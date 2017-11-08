@@ -132,7 +132,14 @@ namespace TwitSearches.Activities
 
         public void ShareTag(int tagIndex)
         {
-            //TODO: IMPLEMENT
+            var tag = (string)listView.GetItemAtPosition(tagIndex);
+            var query = ap.getQuery(tag);
+            Intent intent = new Intent(Intent.ActionSend);
+            intent.SetType("plain/text");
+            //intent.PutExtra(Intent.EXTRA_EMAIL, new String[] { "some@email.address" });
+            intent.PutExtra(Intent.ExtraSubject, tag);
+            intent.PutExtra(Intent.ExtraText, query);
+            StartActivity(Intent.CreateChooser(intent, ""));
         }
 
         public void DeleteTag(int tagIndex)
